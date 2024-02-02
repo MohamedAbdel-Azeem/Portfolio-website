@@ -30,7 +30,12 @@ export function createHome() {
     "text-center"
   );
   const imgPart = document.createElement("img");
-  imgPart.classList.add("transition","duration-300","ease-in-out","hover:scale-105");
+  imgPart.classList.add(
+    "transition",
+    "duration-300",
+    "ease-in-out",
+    "hover:scale-105"
+  );
   imgPart.src = homeImg;
 
   const h1 = document.createElement("h1");
