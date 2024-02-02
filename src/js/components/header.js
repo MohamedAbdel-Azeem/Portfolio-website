@@ -17,7 +17,7 @@ export function createHeader() {
   const nav = document.createElement("nav");
   nav.classList.add("flex", "items-center");
 
-  const links = ["Home", "About", "Skills", "Projects", "Contact"];
+  const links = ["Home", "Skills", "Projects","About", "Contact"];
   const ul = document.createElement("ul");
   ul.classList.add("flex", "items-center", "space-x-4", "lg:space-x-8");
 
