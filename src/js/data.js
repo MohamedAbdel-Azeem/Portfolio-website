@@ -16,10 +16,6 @@ export const skills = [
         imageUrl: require('../assets/images/skills-icons/js.png').default
     },
     {
-        name: 'Typescript',
-        imageUrl: require('../assets/images/skills-icons/ts.png').default
-    },
-    {
         name: 'Python',
         imageUrl: require('../assets/images/skills-icons/python.png').default
     },
