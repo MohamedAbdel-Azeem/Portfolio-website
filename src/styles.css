@@ -17,3 +17,15 @@ section{
     min-height: 100vh;
 }
 
+.glide__bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.glide__bullet--active {
+    background: #000;
+}
+
