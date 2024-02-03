@@ -27,6 +27,8 @@ export function createHeader() {
     a.href = `#${link.toLowerCase()}`;
     a.textContent = link;
     a.classList.add(
+      "sticky",
+      "top-0",
       "text-slate-200",
       "text-sm",
       "lg:text-xl",
