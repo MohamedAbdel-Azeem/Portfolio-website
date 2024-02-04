@@ -1,6 +1,9 @@
 import Typewriter from "typewriter-effect/dist/core";
+import {createDownButton} from "./down-button.js";
 
 const homeImg = require("../../assets/images/home-img.png").default;
+
+
 
 export function createHome() {
   const home = document.createElement("section");
@@ -19,6 +22,7 @@ export function createHome() {
     "text-slate-200",
     "space-y-4"
   );
+  
 
   const textPart = document.createElement("div");
   textPart.classList.add(
@@ -72,5 +76,19 @@ export function createHome() {
 
   home.appendChild(textPart);
   home.appendChild(imgPart);
+
+
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    // for smaller screens, The Button is Below the Image
+    home.appendChild(createDownButton("skills"));
+  } else {
+    // for larger screens ,The Button is below the Text Area
+    const downButton = createDownButton("skills");
+    downButton.classList.add("pt-16");
+    textPart.appendChild(downButton);
+  }
+
+  console.log(home.outerHTML);
+
   return home;
 }

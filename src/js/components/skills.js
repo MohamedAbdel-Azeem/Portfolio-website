@@ -1,6 +1,7 @@
 import Glide from "@glidejs/glide";
 import GlideCoreStyles from "../../glide.core.min.css";
 import { skills } from "../data.js";
+import { createDownButton } from "./down-button.js";
 
 export function createSkills() {
   const skillsContainer = document.createElement("section");
@@ -21,6 +22,7 @@ export function createSkills() {
   skillsContainer.appendChild(heading);
 
   skillsContainer.appendChild(glidingSkills());
+  skillsContainer.appendChild(createDownButton("home"));
   return skillsContainer;
 }
 

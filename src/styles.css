@@ -11,21 +11,39 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: hidden;
 }
 
 section{
     min-height: 100vh;
 }
 
-.glide__bullet {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background: #ccc;
-    border-radius: 50%;
+.downArrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: bouncyArrow 0.5s infinite alternate;
 }
 
-.glide__bullet--active {
-    background: #000;
+.downArrow:hover{
+    animation: bouncyArrowHover 0.3s infinite alternate;
 }
 
+@keyframes bouncyArrow {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(15px);
+    }
+}
+
+@keyframes bouncyArrowHover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
