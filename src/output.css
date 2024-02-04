@@ -622,6 +622,10 @@ video {
   height: 2rem;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .min-h-40 {
   min-height: 10rem;
 }
@@ -644,6 +648,26 @@ video {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-72 {
+  width: 18rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-\[\] {
+  width: ;
+}
+
+.w-\[30rem\] {
+  width: 30rem;
+}
+
+.w-\[35rem\] {
+  width: 35rem;
 }
 
 .min-w-40 {
@@ -904,6 +928,12 @@ video {
 
 .hover\:duration-100:hover {
   transition-duration: 100ms;
+}
+
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 1024px) {

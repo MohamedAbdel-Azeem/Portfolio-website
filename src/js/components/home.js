@@ -12,7 +12,7 @@ export function createHome() {
     "w-full",
     "flex",
     "flex-col",
-    "lg:flex-row",
+    "md:flex-row",
     "items-center",
     "justify-center",
     "lg:justify-between",
@@ -38,9 +38,12 @@ export function createHome() {
     "transition",
     "duration-300",
     "ease-in-out",
-    "hover:scale-105"
+    "hover:scale-105",
+    "w-[35rem]",
+    "h-auto"
   );
   imgPart.src = homeImg;
+  imgPart.alt = "A Vector Image of a Programmer";
 
   const h1 = document.createElement("h1");
   h1.classList.add("text-3xl", "font-bold", "lg:text-5xl");
@@ -54,9 +57,9 @@ export function createHome() {
 
   textPart.appendChild(h1);
 
-  const heading3 = document.createElement("h3");
-  heading3.classList.add("text-2xl", "lg:text-4xl", "font-semibold");
-  const typewriter = new Typewriter(heading3, {
+  const heading2 = document.createElement("h2");
+  heading2.classList.add("text-2xl", "lg:text-4xl", "font-semibold");
+  const typewriter = new Typewriter(heading2, {
     loop: true,
   });
 
@@ -72,7 +75,7 @@ export function createHome() {
     .pauseFor(5000)
     .start();
 
-  textPart.appendChild(heading3);
+  textPart.appendChild(heading2);
 
   home.appendChild(textPart);
   home.appendChild(imgPart);
@@ -87,8 +90,6 @@ export function createHome() {
     downButton.classList.add("pt-16");
     textPart.appendChild(downButton);
   }
-
-  console.log(home.outerHTML);
 
   return home;
 }

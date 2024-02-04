@@ -22,7 +22,7 @@ export function createSkills() {
   skillsContainer.appendChild(heading);
 
   skillsContainer.appendChild(glidingSkills());
-  skillsContainer.appendChild(createDownButton("home"));
+  skillsContainer.appendChild(createDownButton("projects"));
   return skillsContainer;
 }
 
@@ -106,6 +106,9 @@ function glidingSkills() {
       autoplay: 2500,
       hoverpause: true,
       peek: { before: 100, after: 100 },
+      pagination: {
+        el: ".glide__bullets",
+      },
       breakpoints: {
         800: {
           perView: 1,
