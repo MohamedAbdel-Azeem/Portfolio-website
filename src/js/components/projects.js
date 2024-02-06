@@ -1,5 +1,6 @@
 import { projects } from '../data.js';
 import {createDownButton} from "./down-button.js";
+import linkIcon from "../../assets/images/link.png";
 
 export function createProjects(){
     const sectionContainer = document.createElement('section');
@@ -27,8 +28,10 @@ export function createProjects(){
         "projects-container" /*In the Styles.css*/ 
     );
 
-    projects.forEach((projectElement) => {
-        projectsContainer.appendChild(renderProject(projectElement));
+    projects.forEach((projectElement,index) => {
+        const renderedProject = renderProject(projectElement);
+        projectsContainer.appendChild(renderedProject);
+        if (index === projects.length - 1) renderedProject.classList.add("lastProject");
     });
 
     sectionContainer.appendChild(heading);
@@ -38,50 +41,87 @@ export function createProjects(){
 }
 
 
+
 function renderProject(project){
-    const ProjectItem = document.createElement('div');
-    ProjectItem.classList.add("project-card");
-
     const projectContainer = document.createElement('div');
-    projectContainer.classList.add('flex', 'flex-col',"mt-2", 'justify-center',"items-center", 'space-y-2');
-
-    const projectName = document.createElement('h3');
-    projectName.classList.add('text-2xl', 'font-bold');
-    projectName.textContent = project.name;
+    projectContainer.classList.add("max-w-sm","rounded","overflow-hidden","shadow-lg","bg-slate-300");
 
     const projectImage = document.createElement('img');
+    projectImage.classList.add("w-full","h-[40%]");
     projectImage.src = project.imageUrl;
     projectImage.alt = project.name;
-    projectImage.classList.add('w-72', 'h-auto');
+
+    projectContainer.appendChild(projectImage);
+
+    const projectInfo = document.createElement('div');
+    projectInfo.classList.add("px-6", "py-4");
+
+    const projectName = document.createElement('div');
+    projectName.classList.add("font-bold", "text-2xl", "mb-2", "text-slate-800");
+    projectName.textContent = project.name;
 
     const projectDescription = document.createElement('p');
-    projectDescription.classList.add('text-center',"text-lg");
+    projectDescription.classList.add("text-gray-600", "text-base");
     projectDescription.textContent = project.description;
 
-    const projectLanguages = document.createElement('span');
-    projectLanguages.textContent = project.languages;
+    projectInfo.appendChild(projectName);
+    projectInfo.appendChild(projectDescription);
 
-    const projectLinks = document.createElement('div');
-    projectLinks.classList.add('flex', 'flex-row', 'space-x-4');
+    projectContainer.appendChild(projectInfo);
+
+    const projectLanguagesContainer = document.createElement('div');
+    projectLanguagesContainer.classList.add("px-6", "pt-4", "pb-2","flex", "flex-wrap", "justify-evenly");
+
+    project.languages.forEach((language) => {
+        const projectLanguage = document.createElement('span');
+        projectLanguage.classList.add("inline-block", "bg-slate-400", "rounded-full", "px-3", "py-1", "text-sm", "font-semibold", "text-gray-950", "mr-2", "mb-2");
+        projectLanguage.textContent = language;
+        projectLanguagesContainer.appendChild(projectLanguage);
+    });
+
+    projectContainer.appendChild(projectLanguagesContainer);
+
+    const projectLinksContainer = document.createElement('div');
+    projectLinksContainer.classList.add("px-6", "py-4", "flex","flex-col","items-center","space-y-2");
+
     const repoLink = document.createElement('a');
-    repoLink.href = project.repo;
-    repoLink.target = '_blank';
-    repoLink.textContent = 'Repo';
-    const demoLink = document.createElement('a');
-    demoLink.href = project.demo;
-    demoLink.target = '_blank';
-    demoLink.textContent = 'Demo';
+    repoLink.classList.add("text-gray-700", "text-xl", "flex", "items-center","space-x-2" ,"hover:text-indigo-900", "linkAnimation");
+    repoLink.href = project.repoLink;
 
-    projectLinks.appendChild(repoLink);
-    projectLinks.appendChild(demoLink);
+    const repoLinkIcon = document.createElement('img');
+    repoLinkIcon.src = linkIcon;
+    repoLinkIcon.classList.add("w-6", "h-6", "mr-2");
+    repoLinkIcon.alt = "link Icon";
 
-    projectContainer.appendChild(projectName);
-    projectContainer.appendChild(projectDescription);
-    projectContainer.appendChild(projectLanguages);
-    projectContainer.appendChild(projectLinks);
+    const repoLinkSpan = document.createElement('span');
+    repoLinkSpan.textContent = "Repo";
 
-    ProjectItem.appendChild(projectImage);
-    ProjectItem.appendChild(projectContainer);
+    repoLink.appendChild(repoLinkSpan);
+    repoLink.appendChild(repoLinkIcon);
 
-    return ProjectItem;
+    projectLinksContainer.appendChild(repoLink);
+
+    if (project.demo) {
+        const demoLink = document.createElement('a');
+        demoLink.classList.add("text-gray-700", "text-xl", "flex", "items-center","space-x-2" ,"hover:text-indigo-900", "linkAnimation");
+        demoLink.href = project.demo;
+
+        const demoLinkIcon = document.createElement('img');
+        demoLinkIcon.src = linkIcon;
+        demoLinkIcon.classList.add("w-6", "h-6", "mr-2");
+        demoLinkIcon.alt = "link Icon";
+
+        const demoLinkSpan = document.createElement('span');
+        demoLinkSpan.textContent = "Demo";
+
+        demoLink.appendChild(demoLinkSpan);
+        demoLink.appendChild(demoLinkIcon);
+
+        projectLinksContainer.appendChild(demoLink);
+    }
+
+
+    projectContainer.appendChild(projectLinksContainer);
+
+    return projectContainer;
 }

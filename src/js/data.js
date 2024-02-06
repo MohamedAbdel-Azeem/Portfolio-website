@@ -40,34 +40,33 @@ export const skills = [
 export const projects = [
     {
         name: 'Get it Done !',
-        imageUrl: require('../assets/images/projects/project1.png').default,
+        imageUrl: require('../assets/images/projects/get-it-done.png').default,
         description: 'A Simple to-do list app !',
-        languages: "TailwindCSS . CSS . Javascript",
-        repo: 'https://github.com',
-        demo: 'https://youtube.com'
+        languages: ["TailwindCSS", "JavaScript", "HTML", "CSS"],
+        repo: 'https://github.com/MohamedAbdel-Azeem/get-it-done',
+        demo: 'https://mohamedabdel-azeem.github.io/get-it-done/'
     },
     {
         name: 'The Last of Us Java',
-        imageUrl: require('../assets/images/projects/project1.png').default,
+        imageUrl: require('../assets/images/projects/last-of-us.png').default,
         description: 'A Simple App Done in the OOP Course !',
-        languages: "Java . JavaFX . CSS",
-        repo: 'https://github.com',
-        demo: 'https://youtube.com'
+        languages: ["Java", "JavaFX", "CSS"],
+        repo: 'https://github.com/MohamedAbdel-Azeem/TheLastOfUs-CSEN-401',
+        demo: 'https://www.linkedin.com/posts/mohamed-abdelazeem-098086244_a-moment-of-pride-im-so-thrilled-and-activity-7086098033410531328-MpvJ?utm_source=share&utm_medium=member_desktop'
     },
     {
         name: 'Student Admin Portal',
-        imageUrl: require('../assets/images/projects/project1.png').default,
+        imageUrl: require('../assets/images/projects/advising-student.png').default,
         description: 'A simple portal for the DB Course !',
-        languages: "MS SQL . ASP .NET . Javascript & CSS",
-        repo: 'https://github.com',
-        demo: 'https://youtube.com'
+        languages: ["MS SQL","ASP . NET","CSS & JS"],
+        repo: 'https://github.com/MohamedAbdel-Azeem/Advising_Students_System',
     },
     {
         name: 'Tic-Tac-Toe Game',
-        imageUrl: require('../assets/images/projects/project1.png').default,
+        imageUrl: require('../assets/images/projects/tic-tac-toe.png').default,
         description: 'A simple Tic Tac Toe Game',
-        languages: "HTML . CSS . Javascript",
-        repo: 'https://github.com',
-        demo: 'https://youtube.com'
+        languages: ["HTML", "JavaScript", "TailwindCSS"],
+        repo: 'https://github.com/MohamedAbdel-Azeem/Tic-Tac-Toe',
+        demo: 'https://mohamedabdel-azeem.github.io/Tic-Tac-Toe/'
     }
 ];
