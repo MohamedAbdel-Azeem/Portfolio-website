@@ -26,17 +26,16 @@ export function createProjects() {
   heading.textContent = "Projects";
 
   const projectsContainer = document.createElement("div");
-  projectsContainer.classList.add("projects-container" /*In the Styles.css*/);
+  projectsContainer.classList.add("projects-container"); /*In the Styles.css*/
 
   projects.forEach((projectElement, index) => {
     const renderedProject = renderProject(projectElement);
     projectsContainer.appendChild(renderedProject);
-    if (index === projects.length - 1)
-      renderedProject.classList.add("lastProject");
   });
 
   sectionContainer.appendChild(heading);
   sectionContainer.appendChild(projectsContainer);
+  sectionContainer.appendChild(viewMore());
   sectionContainer.appendChild(createDownButton("home"));
 
   section.appendChild(sectionContainer);
@@ -52,8 +51,11 @@ function renderProject(project) {
     "rounded",
     "overflow-hidden",
     "shadow-lg",
-    "bg-slate-300"
+    "bg-slate-300",
+    "pb-4"
   );
+
+  projectContainer.style.paddingBottom = "25px";
 
   const projectImage = document.createElement("img");
   projectImage.classList.add("w-full", "h-[40%]");
@@ -85,7 +87,8 @@ function renderProject(project) {
     "pb-2",
     "flex",
     "flex-wrap",
-    "justify-evenly"
+    "justify-center",
+    "md:justify-evenly"
   );
 
   project.languages.forEach((language) => {
@@ -178,5 +181,17 @@ function renderProject(project) {
 }
 
 
+function viewMore(){
+    const container = document.createElement("div");
+    container.classList = "view-more";
+    
 
+    const anchor = document.createElement("a");
+    anchor.href = "https://github.com/MohamedAbdel-Azeem?tab=repositories";
+    anchor.target = "_blank";
+    anchor.textContent = "View More";
+    container.appendChild(anchor);
+    
+    return container;
+}
 
