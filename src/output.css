@@ -968,6 +968,10 @@ video {
   color: rgb(3 7 18 / var(--tw-text-opacity));
 }
 
+.underline {
+  text-decoration-line: underline;
+}
+
 .underline-offset-4 {
   text-underline-offset: 4px;
 }

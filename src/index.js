@@ -6,7 +6,12 @@ import { createHome } from "./js/components/home.js";
 import { createSkills } from "./js/components/skills.js";
 import { createProjects } from "./js/components/projects.js";
 
-document.body.appendChild(createHeader());
-document.body.appendChild(createHome());
-document.body.appendChild(createSkills());
-document.body.appendChild(createProjects());
+
+const root = document.body;
+
+root.appendChild(createHeader());
+root.appendChild(createHome());
+root.appendChild(createSkills());
+root.appendChild(createProjects());
+
+

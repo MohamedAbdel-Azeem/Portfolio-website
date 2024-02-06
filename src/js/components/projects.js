@@ -1,127 +1,182 @@
-import { projects } from '../data.js';
-import {createDownButton} from "./down-button.js";
+import { projects } from "../data.js";
+import { createDownButton } from "./down-button.js";
 import linkIcon from "../../assets/images/link.png";
 
-export function createProjects(){
-    const sectionContainer = document.createElement('section');
-    sectionContainer.id = 'projects';
-    sectionContainer.classList.add(
-        "flex",
-        "flex-col",
-        "items-center",
-        "justify-center",
-        "w-full",
-        "space-y-28",
-        "py-20",
-        "px-10",
-        "text-slate-200",
-    );
+export function createProjects() {
+  const section = document.createElement("section");
+  section.id = "projects";
 
+  const sectionContainer = document.createElement("div");
 
-    const heading = document.createElement('h2');
-    heading.classList.add('text-5xl', 'font-bold', 'text-center');
-    heading.textContent = 'Projects';
+  sectionContainer.classList.add(
+    "flex",
+    "flex-col",
+    "items-center",
+    "justify-center",
+    "w-full",
+    "space-y-28",
+    "py-20",
+    "px-10",
+    "text-slate-200",
+    "projects-section"
+  );
 
+  const heading = document.createElement("h2");
+  heading.classList.add("text-5xl", "font-bold", "text-center");
+  heading.textContent = "Projects";
 
-    const projectsContainer = document.createElement('div');
-    projectsContainer.classList.add( 
-        "projects-container" /*In the Styles.css*/ 
-    );
+  const projectsContainer = document.createElement("div");
+  projectsContainer.classList.add("projects-container" /*In the Styles.css*/);
 
-    projects.forEach((projectElement,index) => {
-        const renderedProject = renderProject(projectElement);
-        projectsContainer.appendChild(renderedProject);
-        if (index === projects.length - 1) renderedProject.classList.add("lastProject");
-    });
+  projects.forEach((projectElement, index) => {
+    const renderedProject = renderProject(projectElement);
+    projectsContainer.appendChild(renderedProject);
+    if (index === projects.length - 1)
+      renderedProject.classList.add("lastProject");
+  });
 
-    sectionContainer.appendChild(heading);
-    sectionContainer.appendChild(projectsContainer);
-    sectionContainer.appendChild(createDownButton('home'));
-    return sectionContainer;
+  sectionContainer.appendChild(heading);
+  sectionContainer.appendChild(projectsContainer);
+  sectionContainer.appendChild(createDownButton("home"));
+
+  section.appendChild(sectionContainer);
+  return section;
 }
 
 
 
-function renderProject(project){
-    const projectContainer = document.createElement('div');
-    projectContainer.classList.add("max-w-sm","rounded","overflow-hidden","shadow-lg","bg-slate-300");
+function renderProject(project) {
+  const projectContainer = document.createElement("div");
+  projectContainer.classList.add(
+    "max-w-sm",
+    "rounded",
+    "overflow-hidden",
+    "shadow-lg",
+    "bg-slate-300"
+  );
 
-    const projectImage = document.createElement('img');
-    projectImage.classList.add("w-full","h-[40%]");
-    projectImage.src = project.imageUrl;
-    projectImage.alt = project.name;
+  const projectImage = document.createElement("img");
+  projectImage.classList.add("w-full", "h-[40%]");
+  projectImage.src = project.imageUrl;
+  projectImage.alt = project.name;
 
-    projectContainer.appendChild(projectImage);
+  projectContainer.appendChild(projectImage);
 
-    const projectInfo = document.createElement('div');
-    projectInfo.classList.add("px-6", "py-4");
+  const projectInfo = document.createElement("div");
+  projectInfo.classList.add("px-6", "py-4");
 
-    const projectName = document.createElement('div');
-    projectName.classList.add("font-bold", "text-2xl", "mb-2", "text-slate-800");
-    projectName.textContent = project.name;
+  const projectName = document.createElement("div");
+  projectName.classList.add("font-bold", "text-2xl", "mb-2", "text-slate-800");
+  projectName.textContent = project.name;
 
-    const projectDescription = document.createElement('p');
-    projectDescription.classList.add("text-gray-600", "text-base");
-    projectDescription.textContent = project.description;
+  const projectDescription = document.createElement("p");
+  projectDescription.classList.add("text-gray-600", "text-base");
+  projectDescription.textContent = project.description;
 
-    projectInfo.appendChild(projectName);
-    projectInfo.appendChild(projectDescription);
+  projectInfo.appendChild(projectName);
+  projectInfo.appendChild(projectDescription);
 
-    projectContainer.appendChild(projectInfo);
+  projectContainer.appendChild(projectInfo);
 
-    const projectLanguagesContainer = document.createElement('div');
-    projectLanguagesContainer.classList.add("px-6", "pt-4", "pb-2","flex", "flex-wrap", "justify-evenly");
+  const projectLanguagesContainer = document.createElement("div");
+  projectLanguagesContainer.classList.add(
+    "px-6",
+    "pt-4",
+    "pb-2",
+    "flex",
+    "flex-wrap",
+    "justify-evenly"
+  );
 
-    project.languages.forEach((language) => {
-        const projectLanguage = document.createElement('span');
-        projectLanguage.classList.add("inline-block", "bg-slate-400", "rounded-full", "px-3", "py-1", "text-sm", "font-semibold", "text-gray-950", "mr-2", "mb-2");
-        projectLanguage.textContent = language;
-        projectLanguagesContainer.appendChild(projectLanguage);
-    });
+  project.languages.forEach((language) => {
+    const projectLanguage = document.createElement("span");
+    projectLanguage.classList.add(
+      "inline-block",
+      "bg-slate-400",
+      "rounded-full",
+      "px-3",
+      "py-1",
+      "text-sm",
+      "font-semibold",
+      "text-gray-950",
+      "mr-2",
+      "mb-2"
+    );
+    projectLanguage.textContent = language;
+    projectLanguagesContainer.appendChild(projectLanguage);
+  });
 
-    projectContainer.appendChild(projectLanguagesContainer);
+  projectContainer.appendChild(projectLanguagesContainer);
 
-    const projectLinksContainer = document.createElement('div');
-    projectLinksContainer.classList.add("px-6", "py-4", "flex","flex-col","items-center","space-y-2");
+  const projectLinksContainer = document.createElement("div");
+  projectLinksContainer.classList.add(
+    "px-6",
+    "py-4",
+    "flex",
+    "flex-col",
+    "items-center",
+    "space-y-2"
+  );
 
-    const repoLink = document.createElement('a');
-    repoLink.classList.add("text-gray-700", "text-xl", "flex", "items-center","space-x-2" ,"hover:text-indigo-900", "linkAnimation");
-    repoLink.href = project.repoLink;
+  const repoLink = document.createElement("a");
+  repoLink.classList.add(
+    "text-gray-700",
+    "text-xl",
+    "flex",
+    "items-center",
+    "space-x-2",
+    "hover:text-indigo-900",
+    "linkAnimation"
+  );
+  repoLink.href = project.repo;
+  repoLink.target = "_blank";
 
-    const repoLinkIcon = document.createElement('img');
-    repoLinkIcon.src = linkIcon;
-    repoLinkIcon.classList.add("w-6", "h-6", "mr-2");
-    repoLinkIcon.alt = "link Icon";
+  const repoLinkIcon = document.createElement("img");
+  repoLinkIcon.src = linkIcon;
+  repoLinkIcon.classList.add("w-6", "h-6", "mr-2");
+  repoLinkIcon.alt = "link Icon";
 
-    const repoLinkSpan = document.createElement('span');
-    repoLinkSpan.textContent = "Repo";
+  const repoLinkSpan = document.createElement("span");
+  repoLinkSpan.textContent = "Repo";
 
-    repoLink.appendChild(repoLinkSpan);
-    repoLink.appendChild(repoLinkIcon);
+  repoLink.appendChild(repoLinkSpan);
+  repoLink.appendChild(repoLinkIcon);
 
-    projectLinksContainer.appendChild(repoLink);
+  projectLinksContainer.appendChild(repoLink);
 
-    if (project.demo) {
-        const demoLink = document.createElement('a');
-        demoLink.classList.add("text-gray-700", "text-xl", "flex", "items-center","space-x-2" ,"hover:text-indigo-900", "linkAnimation");
-        demoLink.href = project.demo;
+  if (project.demo) {
+    const demoLink = document.createElement("a");
+    demoLink.classList.add(
+      "text-gray-700",
+      "text-xl",
+      "flex",
+      "items-center",
+      "space-x-2",
+      "hover:text-indigo-900",
+      "linkAnimation"
+    );
+    demoLink.href = project.demo;
+    demoLink.target = "_blank";
 
-        const demoLinkIcon = document.createElement('img');
-        demoLinkIcon.src = linkIcon;
-        demoLinkIcon.classList.add("w-6", "h-6", "mr-2");
-        demoLinkIcon.alt = "link Icon";
+    const demoLinkIcon = document.createElement("img");
+    demoLinkIcon.src = linkIcon;
+    demoLinkIcon.classList.add("w-6", "h-6", "mr-2");
+    demoLinkIcon.alt = "link Icon";
 
-        const demoLinkSpan = document.createElement('span');
-        demoLinkSpan.textContent = "Demo";
+    const demoLinkSpan = document.createElement("span");
+    demoLinkSpan.textContent = "Demo";
 
-        demoLink.appendChild(demoLinkSpan);
-        demoLink.appendChild(demoLinkIcon);
+    demoLink.appendChild(demoLinkSpan);
+    demoLink.appendChild(demoLinkIcon);
 
-        projectLinksContainer.appendChild(demoLink);
-    }
+    projectLinksContainer.appendChild(demoLink);
+  }
 
+  projectContainer.appendChild(projectLinksContainer);
 
-    projectContainer.appendChild(projectLinksContainer);
-
-    return projectContainer;
+  return projectContainer;
 }
+
+
+
+
