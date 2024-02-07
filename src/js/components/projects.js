@@ -47,11 +47,10 @@ function renderProject(project) {
   const projectContainer = document.createElement("div");
   projectContainer.classList.add(
     "max-w-sm",
-    "rounded",
+    "rounded-xl",
     "overflow-hidden",
     "shadow-lg",
     "bg-slate-300",
-    "pb-4"
   );
 
   projectContainer.style.paddingBottom = "25px";
@@ -113,7 +112,8 @@ function renderProject(project) {
   const projectLinksContainer = document.createElement("div");
   projectLinksContainer.classList.add(
     "px-6",
-    "py-4",
+    "md:py-4",
+    "max-md:pb-4",
     "flex",
     "flex-col",
     "items-center",
