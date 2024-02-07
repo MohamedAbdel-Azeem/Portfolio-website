@@ -30,7 +30,7 @@ export function createHome() {
     "flex-col",
     "items-center",
     "justify-center",
-    "space-y-4",
+    "space-y-8",
     "text-center"
   );
   const imgPart = document.createElement("img");
@@ -67,10 +67,20 @@ export function createHome() {
     .typeString("I'm a ")
     .pauseFor(300)
     .typeString("<span class='text-emerald-400'>Student</span>")
-    .pauseFor(1000)
+    .pauseFor(3000)
     .deleteChars(9)
     .typeString(
       "Learning <span class='text-emerald-400'>Full-Stack Web Development</span>"
+    )
+    .pauseFor(4000)
+    .deleteChars(26)
+    .typeString(
+      "<span class='text-emerald-400'>The MERN Stack</span>"
+    )
+    .pauseFor(3000)
+    .deleteChars(24)
+    .typeString(
+      "Looking for an <span class='text-emerald-500'>Internship !</span>"
     )
     .pauseFor(5000)
     .start();
