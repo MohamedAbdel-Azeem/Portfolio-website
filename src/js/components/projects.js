@@ -17,8 +17,7 @@ export function createProjects() {
     "space-y-28",
     "py-20",
     "px-10",
-    "text-slate-200",
-    "projects-section"
+    "text-slate-200"
   );
 
   const heading = document.createElement("h2");
@@ -36,7 +35,7 @@ export function createProjects() {
   sectionContainer.appendChild(heading);
   sectionContainer.appendChild(projectsContainer);
   sectionContainer.appendChild(viewMore());
-  sectionContainer.appendChild(createDownButton("home"));
+  sectionContainer.appendChild(createDownButton("about"));
 
   section.appendChild(sectionContainer);
   return section;

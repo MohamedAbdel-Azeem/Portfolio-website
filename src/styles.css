@@ -15,23 +15,20 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-
 
 
 section{
     min-height: 100vh;
 }
 
-#projects{
-    overflow-y: hidden;
+.about-gradient{
+    background: rgb(76,29,149);
+    background: linear-gradient(82deg, rgba(76,29,149,1) 0%, rgba(15,23,42,1) 100%, rgba(59,7,100,1) 100%);
 }
 
-.projects-section{
-    overflow-y: auto;
-}
 
 
 .projects-container{ /*There is a Media Query to make only 1 Column for small Screens*/

@@ -8,7 +8,7 @@ export function createHeader() {
     "w-full",
     "z-[1000]",
     "header",
-    "py-7",
+    "py-5",
     "flex",
     "justify-end",
     "px-8"
@@ -17,7 +17,7 @@ export function createHeader() {
   const nav = document.createElement("nav");
   nav.classList.add("flex", "items-center");
 
-  const links = ["Home", "Skills", "Projects", "About", "Contact"];
+  const links = ["Home", "Skills", "Projects", "About"];
   const ul = document.createElement("ul");
   ul.classList.add("flex", "items-center", "space-x-4", "lg:space-x-8");
 
@@ -85,3 +85,4 @@ function blurOnScroll(header){
     }
   });
 }
+
