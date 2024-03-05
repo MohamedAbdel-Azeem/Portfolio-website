@@ -35,6 +35,10 @@ export const skills = [
         name: 'webpack',
         imageUrl: require('../assets/images/skills-icons/webpack.png').default
     },
+    {
+        name: 'React',
+        imageUrl: require('../assets/images/skills-icons/react.png').default
+    },
 ];
 
 export const projects = [
