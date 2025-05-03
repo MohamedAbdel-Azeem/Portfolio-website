@@ -46,31 +46,35 @@ export function createProjects() {
 function renderProject(project) {
   const projectContainer = document.createElement("div");
   projectContainer.classList.add(
-    "max-w-sm",
+    "w-[300px]",
+    "h-[400px]",
     "rounded-xl",
     "overflow-hidden",
     "shadow-lg",
     "bg-slate-300",
+    "transition-all",
+    "duration-300",
+    "hover:bg-emerald-400",
+    "hover:scale-105",
+    "hover:shadow-2xl"
   );
 
-  projectContainer.style.paddingBottom = "25px";
-
   const projectImage = document.createElement("img");
-  projectImage.classList.add("w-full", "h-[40%]");
+  projectImage.classList.add("w-full", "h-[200px]", "object-cover");
   projectImage.src = project.imageUrl;
   projectImage.alt = project.name;
 
   projectContainer.appendChild(projectImage);
 
   const projectInfo = document.createElement("div");
-  projectInfo.classList.add("px-6", "py-4");
+  projectInfo.classList.add("px-6", "py-4", "h-[200px]", "flex", "flex-col", "justify-between");
 
   const projectName = document.createElement("div");
-  projectName.classList.add("font-bold", "text-2xl", "mb-2", "text-slate-800");
+  projectName.classList.add("font-bold", "text-2xl", "mb-2", "text-slate-800", "transition-colors", "duration-300", "group-hover:text-white");
   projectName.textContent = project.name;
 
   const projectDescription = document.createElement("p");
-  projectDescription.classList.add("text-gray-600", "text-base");
+  projectDescription.classList.add("text-gray-600", "text-base", "transition-colors", "duration-300", "group-hover:text-white");
   projectDescription.textContent = project.description;
 
   projectInfo.appendChild(projectName);
@@ -86,7 +90,7 @@ function renderProject(project) {
     "flex",
     "flex-wrap",
     "justify-center",
-    "md:justify-evenly"
+    "gap-2"
   );
 
   project.languages.forEach((language) => {
@@ -100,20 +104,21 @@ function renderProject(project) {
       "text-sm",
       "font-semibold",
       "text-gray-950",
-      "mr-2",
-      "mb-2"
+      "transition-colors",
+      "duration-300",
+      "group-hover:bg-white",
+      "group-hover:text-emerald-600"
     );
     projectLanguage.textContent = language;
     projectLanguagesContainer.appendChild(projectLanguage);
   });
 
-  projectContainer.appendChild(projectLanguagesContainer);
+  projectInfo.appendChild(projectLanguagesContainer);
 
   const projectLinksContainer = document.createElement("div");
   projectLinksContainer.classList.add(
     "px-6",
-    "md:py-4",
-    "max-md:pb-4",
+    "py-4",
     "flex",
     "flex-col",
     "items-center",
@@ -127,7 +132,9 @@ function renderProject(project) {
     "flex",
     "items-center",
     "space-x-2",
-    "hover:text-indigo-900",
+    "transition-colors",
+    "duration-300",
+    "group-hover:text-white",
     "linkAnimation"
   );
   repoLink.href = project.repo;
@@ -154,7 +161,9 @@ function renderProject(project) {
       "flex",
       "items-center",
       "space-x-2",
-      "hover:text-indigo-900",
+      "transition-colors",
+      "duration-300",
+      "group-hover:text-white",
       "linkAnimation"
     );
     demoLink.href = project.demo;
@@ -174,7 +183,7 @@ function renderProject(project) {
     projectLinksContainer.appendChild(demoLink);
   }
 
-  projectContainer.appendChild(projectLinksContainer);
+  projectInfo.appendChild(projectLinksContainer);
 
   return projectContainer;
 }

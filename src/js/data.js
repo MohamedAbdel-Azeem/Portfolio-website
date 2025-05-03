@@ -24,20 +24,36 @@ export const skills = [
         imageUrl: require('../assets/images/skills-icons/java.png').default
     },
     {
-        name: 'MSSQL',
-        imageUrl: require('../assets/images/skills-icons/mssql.png').default
+        name: 'PostgreSQL',
+        imageUrl: require('../assets/images/skills-icons/psql.png').default
     },
     {
         name: 'GIT',
         imageUrl: require('../assets/images/skills-icons/git.png').default
     },
     {
-        name: 'webpack',
-        imageUrl: require('../assets/images/skills-icons/webpack.png').default
-    },
-    {
         name: 'React',
         imageUrl: require('../assets/images/skills-icons/react.png').default
+    },
+    {
+        name: 'Node js',
+        imageUrl: require('../assets/images/skills-icons/node_js.png').default
+    },
+    {
+        name: 'Express js',
+        imageUrl: require('../assets/images/skills-icons/express.png').default
+    },
+    {
+        name: 'C++',
+        imageUrl: require('../assets/images/skills-icons/cpp.png').default
+    },
+    {
+        name: 'Mongo DB',
+        imageUrl: require('../assets/images/skills-icons/mongodb.png').default
+    },
+    {
+        name: 'TypeScript',
+        imageUrl: require('../assets/images/skills-icons/ts.png').default
     },
 ];
 

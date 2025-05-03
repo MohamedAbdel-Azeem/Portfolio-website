@@ -60,29 +60,64 @@ function glidingSkills() {
   skills.forEach((skill) => {
     const skillItem = document.createElement("li");
     skillItem.classList.add(
-      "min-w-40",
-      "min-h-40",
-      "lg:w-40",
-      "lg:h-48",
+      "w-[200px]",
+      "h-[200px]",
       "flex",
       "flex-col",
       "items-center",
       "justify-center",
       "bg-slate-900",
       "rounded-xl",
-      "shadow-lg"
+      "shadow-lg",
+      "transition-colors",
+      "duration-300",
+      "hover:bg-slate-300",
+      "p-4",
+      "group"
     );
 
     const skillIcon = document.createElement("img");
     skillIcon.src = skill.imageUrl;
     skillIcon.alt = skill.name;
-    skillIcon.classList.add("w-16", "h-16");
+    skillIcon.classList.add(
+      "w-[120px]",
+      "h-[120px]",
+      "object-contain"
+    );
     skillItem.appendChild(skillIcon);
 
     const skillName = document.createElement("span");
-    skillName.classList.add("text-lg", "font-bold", "mt-4");
+    skillName.classList.add(
+      "text-lg",
+      "font-bold",
+      "mt-4",
+      "text-slate-200",
+      "transition-colors",
+      "duration-300",
+      "group-hover:text-slate-900"
+    );
     skillName.textContent = skill.name;
     skillItem.appendChild(skillName);
+
+    // Add a wrapper div for the icon to handle the hover effect
+    const iconWrapper = document.createElement("div");
+    iconWrapper.classList.add(
+      "w-[120px]",
+      "h-[120px]",
+      "flex",
+      "items-center",
+      "justify-center"
+    );
+    skillIcon.classList.remove("w-[120px]", "h-[120px]");
+    skillIcon.classList.add(
+      "w-full",
+      "h-full",
+      "object-contain",
+      "transition-colors",
+      "duration-300",
+    );
+    iconWrapper.appendChild(skillIcon);
+    skillItem.insertBefore(iconWrapper, skillName);
 
     glideListContainer.appendChild(skillItem);
   });
