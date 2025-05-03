@@ -59,31 +59,35 @@ export function createHome() {
 
   const heading2 = document.createElement("h2");
   heading2.classList.add("text-2xl", "lg:text-4xl", "font-semibold");
+  
+  const typewriterTexts = [
+    { text: "I'm a <span class='text-emerald-400'>Computer Science and Engineering Student</span>", displayTime: 4000 },
+    { text: "I study at the <span class='text-emerald-400'>German University in Cairo (GUC)</span>", displayTime: 3500 },
+    { text: "I will graduate in <span class='text-emerald-400'>2026</span>", displayTime: 3000 },
+    { text: "I'm interested in <span class='text-emerald-400'>Full-Stack Web Development</span>", displayTime: 4000 },
+    { text: "I'm Also Interested in <span class='text-red-400'>AI and ML !!</span>", displayTime: 3500 },
+    { text: "I'm Looking for an <span class='text-emerald-500'>Internship !!</span>", displayTime: 5000 }
+  ];
+
   const typewriter = new Typewriter(heading2, {
     loop: true,
   });
 
-  typewriter
-    .typeString("I'm a ")
-    .pauseFor(300)
-    .typeString("<span class='text-emerald-400'>Student</span>")
-    .pauseFor(3000)
-    .deleteChars(9)
-    .typeString(
-      "Learning <span class='text-emerald-400'>Full-Stack Web Development</span>"
-    )
-    .pauseFor(4000)
-    .deleteChars(26)
-    .typeString(
-      "<span class='text-emerald-400'>The MERN Stack</span>"
-    )
-    .pauseFor(3000)
-    .deleteChars(24)
-    .typeString(
-      "Looking for an <span class='text-emerald-500'>Internship !</span>"
-    )
-    .pauseFor(5000)
-    .start();
+  
+  typewriterTexts.forEach((item, index) => {
+    if (index > 0) {
+      // Calculate the length of the previous text to delete
+      const prevText = typewriterTexts[index - 1].text;
+      const textLength = prevText.replace(/<[^>]*>/g, '').length;
+      typewriter.deleteChars(textLength);
+    }
+    
+    typewriter
+      .typeString(item.text)
+      .pauseFor(item.displayTime);
+  });
+
+  typewriter.start();
 
   textPart.appendChild(heading2);
 
