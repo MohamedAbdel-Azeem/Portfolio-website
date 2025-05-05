@@ -1,7 +1,7 @@
 import Header from "./components/header";
 import Home from "./components/home";
 import Skills from "./components/skills";
-// import Projects from "./components/projects";
+import Projects from "./components/projects";
 import About from "./components/about";
 import "./styles.css";
 
@@ -11,7 +11,7 @@ export default function App() {
       <Header />
       <Home />
       <Skills />
-      {/* <Projects /> */}
+      <Projects />
       <About />
     </main>
   );
