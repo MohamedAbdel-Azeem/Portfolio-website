@@ -13,11 +13,11 @@ export default function About() {
       <div className="flex md:flex-row flex-col items-center justify-center w-full md:justify-evenly space-y-8">
         <img src={myImage} alt="Me" className="w-72 rounded-full shadow-lg" />
         <p className="text-slate-200 text-lg md:text-xl text-center px-6 md:w-96">
-          I am a Computer Science and Engineering Student in the German
-          University in Cairo who is expected to graduate in 2026 with a passion
-          for creating and developing web applications. I am a very passionate
-          and dedicated person who is always looking to improve and learn new
-          things.
+          I’m a Computer Science and Engineering student at the German
+          University in Cairo, expected to graduate in 2026. I’m passionate
+          about building and developing web applications, and I’m always eager
+          to grow, improve, and explore new technologies. I bring dedication,
+          curiosity, and a constant drive to learn to every project I work on
         </p>
       </div>
 
