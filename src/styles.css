@@ -3,6 +3,7 @@ main {
   padding: 0;
   min-width: 100vw;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 *::-webkit-scrollbar {
@@ -22,10 +23,36 @@ body {
   justify-content: center;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow: hidden;
 }
 
 section {
   min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  padding-top: 80px; /* Add space for fixed header */
+  scroll-behavior: smooth;
+}
+
+.sections-container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  section {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding-top: 50px;
+  }
 }
 
 .about-gradient {
@@ -109,13 +136,13 @@ section {
   }
 }
 
+/* Remove the old underline animation styles */
 .active-section-underline {
   display: block;
   position: relative;
   padding: 0.2em 0;
 }
 
-/* Fade in */
 .active-section-underline::after {
   content: "";
   position: absolute;
@@ -129,7 +156,6 @@ section {
   animation-iteration-count: 1;
 }
 
-/* Slide in */
 @keyframes slideIn {
   from {
     transform: translate3d(-100%, 0, 0);
@@ -141,12 +167,48 @@ section {
 
 .view-more {
   padding: 10px 20px;
-  border: 2px solid #5b21b6;
   color: #f1f5f9;
   border-radius: 5px;
   transition: background-color 0.2s ease-in-out;
+  background-color: #4c1d95;
 }
 
 .view-more:hover {
-  background-color: #5b21b6;
+  background-color: #3b0d80;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  scale: 1.05;
+  transition: scale 0.3s ease-in-out;
+}
+
+/* Custom Scrollbar Styles */
+.scrollbar-hide {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.5) rgba(15, 23, 42, 0.3);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 4px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.7);
+}
+
+/* For Firefox */
+.scrollbar-hide {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.5) rgba(15, 23, 42, 0.3);
 }
