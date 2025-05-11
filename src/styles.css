@@ -1,149 +1,214 @@
-*{
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+main {
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 *::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-body{
-    background: rgb(49,46,129);
-    background: linear-gradient(121deg, rgba(49,46,129,1) 0%, rgba(15,23,42,1) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+body {
+  background: rgb(49, 46, 129);
+  background: linear-gradient(
+    121deg,
+    rgba(49, 46, 129, 1) 0%,
+    rgba(15, 23, 42, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: hidden;
 }
 
-
-section{
-    min-height: 100vh;
+section {
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  padding-top: 80px; /* Add space for fixed header */
+  scroll-behavior: smooth;
 }
 
-.about-gradient{
-    background: rgb(76,29,149);
-    background: linear-gradient(82deg, rgba(76,29,149,1) 0%, rgba(15,23,42,1) 100%, rgba(59,7,100,1) 100%);
+.sections-container {
+  height: 100vh;
+  overflow: hidden;
 }
 
-
-
-.projects-container{ /*There is a Media Query to make only 1 Column for small Screens*/
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 30px;
-    column-gap: 70px;
+/* Responsive styles */
+@media (max-width: 768px) {
+  section {
+    padding-top: 60px;
+  }
 }
 
-@media (min-width:1200px) {
-    .projects-container :last-child {
-        grid-column-start: 2;
-        grid-column-end: 3; /* Span across all three columns */
-    }    
+@media (max-width: 480px) {
+  section {
+    padding-top: 50px;
+  }
 }
 
-
-
-
-@media (max-width: 1200px){
-    .projects-container{
-        grid-template-columns: 1fr 1fr;
-    }
+.about-gradient {
+  background: rgb(76, 29, 149);
+  background: linear-gradient(
+    82deg,
+    rgba(76, 29, 149, 1) 0%,
+    rgba(15, 23, 42, 1) 100%,
+    rgba(59, 7, 100, 1) 100%
+  );
 }
 
-@media (max-width: 800px){
-    .projects-container{
-        grid-template-columns: 1fr;
-    }
+.projects-container {
+  /*There is a Media Query to make only 1 Column for small Screens*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 70px;
 }
 
-
-.downArrow{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    animation: bouncyArrow 0.5s infinite alternate;
+@media (min-width: 1200px) {
+  .projects-container :last-child {
+    grid-column-start: 2;
+    grid-column-end: 3; /* Span across all three columns */
+  }
 }
 
-.downArrow:hover{
-    animation: bouncyArrowHover 0.3s infinite alternate;
+@media (max-width: 1200px) {
+  .projects-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.downArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: bouncyArrow 0.5s infinite alternate;
+}
+
+.downArrow:hover {
+  animation: bouncyArrowHover 0.3s infinite alternate;
 }
 
 @keyframes bouncyArrow {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(15px);
-    }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(15px);
+  }
 }
 
 @keyframes bouncyArrowHover {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(20px);
-    }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }
 
-.linkAnimation:hover img{
-    animation: rotateLink 0.5s 1 alternate;
+.linkAnimation:hover img {
+  animation: rotateLink 0.5s 1 alternate;
 }
 
 @keyframes rotateLink {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg) scale(1.2);
-    }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
 }
 
-
+/* Remove the old underline animation styles */
 .active-section-underline {
-    display: block;
-    position: relative;
-    padding: 0.2em 0;
-  }
-  
-  /* Fade in */
-  .active-section-underline::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.1em;
-    background-color: #16a34a;
-    opacity: 1;
-    animation: slideIn 0.5s ease-in-out forwards;
-    animation-iteration-count: 1;
-  }
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+}
 
-  /* Slide in */
-  @keyframes slideIn {
-    from {
-      transform: translate3d(-100%, 0, 0);
-    }
-    to {
-      transform: translate3d(0, 0, 0);
-    }
-  }
+.active-section-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: #16a34a;
+  opacity: 1;
+  animation: slideIn 0.5s ease-in-out forwards;
+  animation-iteration-count: 1;
+}
 
-  .view-more{
-    padding: 10px 20px;
-    border: 2px solid #5b21b6;
-    color: #f1f5f9;
-    border-radius: 5px;
-    transition: background-color 0.2s ease-in-out;
+@keyframes slideIn {
+  from {
+    transform: translate3d(-100%, 0, 0);
   }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
 
-  .view-more:hover{
-    background-color: #5b21b6;
-  }
+.view-more {
+  padding: 10px 20px;
+  color: #f1f5f9;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+  background-color: #4c1d95;
+}
+
+.view-more:hover {
+  background-color: #3b0d80;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  scale: 1.05;
+  transition: scale 0.3s ease-in-out;
+}
+
+/* Custom Scrollbar Styles */
+.scrollbar-hide {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.5) rgba(15, 23, 42, 0.3);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 4px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.7);
+}
+
+/* For Firefox */
+.scrollbar-hide {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.5) rgba(15, 23, 42, 0.3);
+}

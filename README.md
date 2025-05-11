@@ -1,18 +1,12 @@
-# Portfolio Website
+# React + Vite
 
-This is a responsive portfolio website designed and developed as the final project in the Advanced HTML & CSS section of The Odin Project.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🛠️ Technologies Used
+Currently, two official plugins are available:
 
-- **HTML**: Used for creating the structure of the website.
-- **CSS**: Used for creating animations and transitions to make the website more interactive.
-- **TailwindCSS**: Used for styling the website.
-- **JavaScript**: Used for adding interactivity to the website.
-- **Webpack**: Used for bundling the JavaScript files.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🌟 Features
+## Expanding the ESLint configuration
 
-- **Responsive Design**: The website is designed to be responsive and works well on all screen sizes.
-- **Interactive**: The website uses JavaScript to add interactivity, making it more engaging for users.
-- **Animations and Transitions**: CSS is used to create animations and transitions, enhancing the user experience.
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
